@@ -24,7 +24,7 @@ Due to GCP GPU quota issues, training was performed **locally** on a **Windows m
 ## Issues & Fixes
 
 | Issue | Cause | Fix |
-|--------|--------|-----||
+|--------|--------|-----|
 | CUDA kernel error | PyTorch version incompatible with 5070 Ti | Upgraded to `torch==2.7.0.dev+cu124` |
 | `_pickle.UnpicklingError` | `torch.load` default `weights_only=True` | Set `weights_only=False` |
 | TensorBoard invalid arg | Used `--logdir = runs` | Corrected to `--logdir=runs` |
