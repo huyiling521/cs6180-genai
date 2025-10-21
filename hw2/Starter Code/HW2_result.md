@@ -12,4 +12,3 @@
 ## BLEU Score Output 
 ```
 Corpus BLEU: 20.14506437403847
-```

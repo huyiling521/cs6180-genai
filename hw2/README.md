@@ -1,7 +1,3 @@
-## Homework 2
-#### Author: Yiling Hu
-#### URL: https://github.com/huyiling521/cs6180-genai
-
 # CS6180 HW2 — Neural Machine Translation
 
 **Author:** Yiling Hu  
