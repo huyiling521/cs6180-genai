@@ -115,6 +115,10 @@ def train(args: Dict):
     """ Train the NMT Model.
     @param args (Dict): args from cmd line
     """
+
+    print(f"🟢 Using device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU only'}")
+    print(f"CUDA available: {torch.cuda.is_available()}")
+
     train_data_src = read_corpus(args['--train-src'], source='src', vocab_size=21000)       # EDIT: NEW VOCAB SIZE
     train_data_tgt = read_corpus(args['--train-tgt'], source='tgt', vocab_size=8000)
 
@@ -278,7 +282,9 @@ def train(args: Dict):
                         print('load previously best model and decay learning rate to %f' % lr, file=sys.stderr)
 
                         # load model
-                        params = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+
+                        params = torch.load(model_save_path, map_location=lambda storage, loc: storage, weights_only=False)
+
                         model.load_state_dict(params['state_dict'])
                         model = model.to(device)
 

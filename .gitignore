@@ -112,6 +112,8 @@ datasets/
 *.gz
 *.npy
 *.pkl
+*.bin
+*.optim
 
 # ==============================
 # END

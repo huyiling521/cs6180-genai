@@ -1,22 +1,14 @@
 # HW2 Results
 
 ## Test Performance
-- **BLEU Score:** 20.34
+- **BLEU Score:** 20.145
 
 ## Training Statistics
-- **Training Time:** ~40 minutes
-- **Final Iteration:** 19,200
-- **Dev Perplexity:** 11.31
+- **Training Time:** ~28 minutes
+- **Final Iteration:** 17,200
+- **Dev Perplexity:** 11.91
 - **Early Stopping:** Hit after 5 patience trials
 
-## Architecture
-- Embed size: 1024
-- Hidden size: 768
-- Dropout: 0.3
-- Bidirectional LSTM Encoder
-- Attention Mechanism
-
-## Actual BLEU Score Output 
+## BLEU Score Output 
 ```
-Corpus BLEU: 20.34227161925886
-```
+Corpus BLEU: 20.14506437403847
