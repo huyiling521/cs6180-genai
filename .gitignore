@@ -1,0 +1,118 @@
+# ==============================
+# OS-SPECIFIC FILES
+# ==============================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ==============================
+# PYTHON / CONDA ENVIRONMENTS
+# ==============================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.env/
+.venv/
+venv/
+env/
+ENV/
+*.conda
+*.egg-info/
+dist/
+build/
+develop-eggs/
+.eggs/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# ==============================
+# TORCH / TENSORBOARD / LOGS
+# ==============================
+
+# TensorBoard logs
+runs/
+events.out.tfevents.*
+
+# Torch save files
+*.pt
+*.pth
+*.ckpt
+
+# Training output / cache
+outputs/
+logs/
+checkpoints/
+models/
+tmp/
+cache/
+__cache__/
+
+# ==============================
+# EDITOR / IDE CONFIGS
+# ==============================
+
+# VSCode / Cursor
+.vscode/
+.history/
+cursor.json
+
+# JetBrains (PyCharm, IntelliJ, etc.)
+.idea/
+*.iml
+
+# Others
+*.sublime-project
+*.sublime-workspace
+
+# ==============================
+# MISC
+# ==============================
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Node.js / Frontend (if used)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Data
+data/
+datasets/
+*.csv
+*.tsv
+*.zip
+*.tar
+*.gz
+*.npy
+*.pkl
+
+# ==============================
+# END
+# ==============================
