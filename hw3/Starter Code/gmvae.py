@@ -48,6 +48,26 @@ class GMVAE(nn.Module):
         ################################################################################
         # Compute the mixture of Gaussian prior
         prior = ut.gaussian_parameters(self.z_pre, dim=1)
+        m_mixture, v_mixture = prior # m: (1, k, z_dim), v: (1, k, z_dim)
+
+        z_mu, z_logvar = self.enc(x)
+        z_var = torch.exp(z_logvar)
+
+        z_sample = ut.sample_gaussian(z_mu, z_var)
+
+        logits = self.dec(z_sample)
+        
+        rec_all_dims = F.binary_cross_entropy_with_logits(logits, x, reduction='none')
+        rec = torch.sum(rec_all_dims, dim=1).mean() # 标量
+
+        log_q_per_dim = -0.5 * (torch.log(torch.tensor(2.0 * np.pi)) + z_logvar + (z_sample - z_mu)**2 / z_var)
+        log_q = torch.sum(log_q_per_dim, dim=1) # 形状 (batch,)
+
+        log_p = ut.log_normal_mixture(z_sample, m_mixture, v_mixture) # 形状 (batch,)
+
+        kl = torch.mean(log_q - log_p) # 标量
+
+        nelbo = kl + rec
         ################################################################################
         # End of code modification
         ################################################################################

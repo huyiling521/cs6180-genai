@@ -89,7 +89,18 @@ def log_normal_mixture(z, m, v):
     # Compute the uniformly-weighted mixture of Gaussians density for each sample
     # in the batch
     ################################################################################
+    z_un = z.unsqueeze(1)
 
+    log_2pi = torch.log(torch.tensor(2.0 * np.pi))
+    
+    log_v = torch.log(v)
+    diff_sq_over_v = (z_un - m) ** 2 / v
+    
+    log_p_per_dim = -0.5 * (log_2pi + log_v + diff_sq_over_v)
+
+    log_p_multivariate = torch.sum(log_p_per_dim, dim=2)
+
+    log_prob = log_mean_exp(log_p_multivariate, dim=1)
     ################################################################################
     # End of code modification
     ################################################################################
