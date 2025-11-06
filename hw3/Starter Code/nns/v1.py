@@ -19,7 +19,7 @@ class Encoder(nn.Module):
             nn.Linear(300, 2 * z_dim),
         )
 
-    def encode(self, x, y=None):
+    def forward(self, x, y=None):
         xy = x if y is None else torch.cat((x, y), dim=1)
         h = self.net(xy)
         m, v = ut.gaussian_parameters(h, dim=1)
@@ -38,7 +38,7 @@ class Decoder(nn.Module):
             nn.Linear(300, 784)
         )
 
-    def decode(self, z, y=None):
+    def forward(self, z, y=None):
         zy = z if y is None else torch.cat((z, y), dim=1)
         return self.net(zy)
 

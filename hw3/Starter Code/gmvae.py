@@ -92,7 +92,7 @@ class GMVAE(nn.Module):
         return self.compute_sigmoid_given(z)
 
     def compute_sigmoid_given(self, z):
-        logits = self.dec.decode(z)
+        logits = self.dec(z)
         return torch.sigmoid(logits)
 
     def sample_z(self, batch):
@@ -104,6 +104,7 @@ class GMVAE(nn.Module):
     def sample_x(self, batch):
         z = self.sample_z(batch)
         return self.sample_x_given(z)
+
 
     def sample_x_given(self, z):
         return torch.bernoulli(self.compute_sigmoid_given(z))

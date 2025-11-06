@@ -36,7 +36,7 @@ def sample_gaussian(m, v):
     # TODO: Modify/complete the code here
     # Sample z
     ################################################################################
-    stand_normal = torch.randn(m.shape)
+    stand_normal = torch.randn_like(m)
     z = stand_normal*torch.sqrt(v) + m
     ################################################################################
     # End of code modification
@@ -244,6 +244,7 @@ def load_model_by_name(model, global_step, device=None):
 
 
 def evaluate_lower_bound(model, labeled_test_subset, run_iwae=True):
+    from gmvae import GMVAE
     check_model = isinstance(model, VAE) or isinstance(model, GMVAE)
     assert check_model, "This function is only intended for VAE and GMVAE"
 
